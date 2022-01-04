@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <h1>{{title}}</h1>
+<!--todo-->
+<input type="text" placeholder="Enter your task" #task/>
+<br>
+<br>
+<button class="taskBtn" (click)="addTask(task.value)" >Add Task</button>  
+<!--todo-->
+<!--todo list-->
+<h2 *ngIf="show">Task List</h2>
+<ul *ngFor="let data of list">
+  <li>{{data.name}} <button class="taskBtn" (click)="removeTask(data.id)">Remove Task</button></li>
+</ul>
+<br>
+<br>
+<!--todo list-->
+</div>
+<!--counter-->
+<div class="container">
+  <p>Count Value : {{count}}</p>
+  <mat-slider min="1" max="100" step="1" value="50"></mat-slider>
+    <button class= "btn btn-danger" (click)="counter('sub')">--</button>
+<button class="btn btn-success" (click)="counter('add')">++</button>  
+<!--counter-->
+
+<!--child component-->
+<app-child [item]="data"></app-child>
+<!--child component-->
+
